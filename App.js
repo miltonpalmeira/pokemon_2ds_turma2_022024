@@ -1,11 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import Pokemon from './components/Pokemon';
+import { useState } from 'react';
 
 export default function App() {
+  const [text, setText] = useState('');
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Pokemon />
+
+      <TextInput 
+        value={text} onChangeText={text => { setText(text); }}
+        style={{ borderWidth: 2 }}
+      />
+
+      <Text>{text}</Text>
     </View>
   );
 }
